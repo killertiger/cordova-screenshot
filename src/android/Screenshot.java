@@ -120,14 +120,14 @@ public class Screenshot extends CordovaPlugin {
 							//ALTERAÇÕES *************************
 							//dasateasteasseasjo
 							//jiojij
-							BufferedImage source = bitmap.getImage();
+							Bitmap source = bitmap;
 
 							boolean flag = false ;
 							int upperBorder = -1 ; 
 							do{
 								upperBorder ++ ;
 								for (int c1 =0 ; c1 < source.getWidth() ; c1++){
-									if(source.getRGB(c1, upperBorder) != Color.white.getRGB() ){
+									if(source.getPixel(c1, upperBorder) != Color.WHITE ){
 										flag = true;
 										break ;
 									}
