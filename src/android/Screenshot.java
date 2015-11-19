@@ -95,7 +95,29 @@ public class Screenshot extends CordovaPlugin {
         mediaScanIntent.setData(contentUri);
         this.cordova.getActivity().sendBroadcast(mediaScanIntent);
     }
-	
+	private Bitmap tentativa2(Bitmap source)
+	{
+		int baseColor = Color.WHITE;
+
+		   int width = source.getWidth();
+		   int height = source.getHeight();
+		
+		   int topY = Integer.MAX_VALUE, topX = Integer.MAX_VALUE;
+		   int bottomY = -1, bottomX = -1;
+		   for(int y=0; y<height; y++) {
+		      for(int x=0; x<width; x++) {
+		         if (source.getPixel(c1, upperBorder) == baseColor) {
+		            if (x < topX) topX = x;
+		            if (y < topY) topY = y;
+		            if (x > bottomX) bottomX = x;
+		            if (y > bottomY) bottomY = y;
+		         }
+		      }
+	   	}
+	   	
+	   	Bitmap destination = Bitmap.createBitmap(source, topX, topY, bottomX, bottomY);//source.getHeight() - upperBorder);
+	   	return destination;
+	}
 	
 	@Override
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
@@ -122,7 +144,7 @@ public class Screenshot extends CordovaPlugin {
 							//ALTERAÇÕES *************************
 							//dasateasteasseasjo
 							//jiojij
-							Bitmap source = bitmap;
+							/*Bitmap source = bitmap;
 
 							boolean flag = false ;
 							int upperBorder = -1 ; 
@@ -142,7 +164,7 @@ public class Screenshot extends CordovaPlugin {
 						//	BufferedImage destination = new BufferedImage(source.getWidth(), source.getHeight() - upperBorder, BufferedImage.TYPE_INT_ARGB) ;
 						//	destination.getGraphics().drawImage(source, 0, upperBorder*-1, null) ;
 							Bitmap destination = Bitmap.createBitmap(source, 0, 0, source.getWidth(), 50);//source.getHeight() - upperBorder);
-							bitmap = destination;
+							bitmap = destination;*/
 
 							//ALTERAÇÕES *************************
 
