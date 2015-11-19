@@ -119,8 +119,8 @@ public class Screenshot extends CordovaPlugin {
 							}
 
 							//ALTERAÇÕES *************************
-							dasateasteasseasjo
-							jiojij
+							//dasateasteasseasjo
+							//jiojij
 							Image source = bitmap;
 
 							boolean flag = false ;
