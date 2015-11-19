@@ -139,8 +139,9 @@ public class Screenshot extends CordovaPlugin {
 									flag = true ;
 							}while(!flag) ;
 
-							BufferedImage destination = new BufferedImage(source.getWidth(), source.getHeight() - upperBorder, BufferedImage.TYPE_INT_ARGB) ;
-							destination.getGraphics().drawImage(source, 0, upperBorder*-1, null) ;
+						//	BufferedImage destination = new BufferedImage(source.getWidth(), source.getHeight() - upperBorder, BufferedImage.TYPE_INT_ARGB) ;
+						//	destination.getGraphics().drawImage(source, 0, upperBorder*-1, null) ;
+							Bitmap destination = new Bitmap(source, source.getWidth(), source.getHeight() - upperBorder);
 							bitmap = destination;
 
 							//ALTERAÇÕES *************************
