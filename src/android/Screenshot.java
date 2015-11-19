@@ -125,8 +125,8 @@ public class Screenshot extends CordovaPlugin {
 				break;
 			}
 		}
-		
 	   	String result = topX + " - " + topY + " - " + width + " - " + height;
+		Log.d("autocrop", result);
 		Bitmap destination = Bitmap.createBitmap(source, topX, topY, width - topX, height - topY);//source.getHeight() - upperBorder);
 	   	return destination;
 	}
