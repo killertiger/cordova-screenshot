@@ -123,6 +123,28 @@ public class Screenshot extends CordovaPlugin {
 	   	return destination;
 	}
 	
+	private Bitmap tentativa3(Bitmap source)
+	{
+		int baseColor = Color.WHITE;
+
+		   int width = source.getWidth();
+		   int height = source.getHeight();
+		int x = 0;
+		for(int y=height-1; y > 0; y--)
+		{
+			if (source.getPixel(x, y) == baseColor) {
+				height = y;	
+			}
+			else
+			{
+				break;
+			}
+		}
+	   	String result = topX + " - " + topY + " - " + bottomX + " - " + bottomY;
+		Bitmap destination = Bitmap.createBitmap(source, 0, 0, source.getWidth(), height);//source.getHeight() - upperBorder);
+	   	return destination;
+	}
+	
 	@Override
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
 	 	// starting on ICS, some WebView methods
