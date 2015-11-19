@@ -106,7 +106,7 @@ public class Screenshot extends CordovaPlugin {
 		   int bottomY = -1, bottomX = -1;
 		   for(int y=0; y<height; y++) {
 		      for(int x=0; x<width; x++) {
-		         if (source.getPixel(c1, upperBorder) == baseColor) {
+		         if (source.getPixel(x, y) == baseColor) {
 		            if (x < topX) topX = x;
 		            if (y < topY) topY = y;
 		            if (x > bottomX) bottomX = x;
