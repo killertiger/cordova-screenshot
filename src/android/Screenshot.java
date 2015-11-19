@@ -115,7 +115,7 @@ public class Screenshot extends CordovaPlugin {
 				break;
 			}
 		}
-		for(int y=height-1; y > height/2; y--)
+		for(int y=height-1; y > 0; y--)
 		{
 			if (source.getPixel(x, y) == Color.WHITE) {
 				height = y;	
