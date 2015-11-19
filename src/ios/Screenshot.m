@@ -37,7 +37,7 @@
 
 	UIImage *oldImage = [self getScreenshot];
 
-	CGRect newRect = [self cropRectForImage:oldImage]; asdf
+	CGRect newRect = [self cropRectForImage:oldImage];
 	CGImageRef imageRef = CGImageCreateWithImageInRect(oldImage.CGImage, newRect);
 	UIImage *image = [UIImage imageWithCGImage:imageRef];
 	CGImageRelease(imageRef);
