@@ -93,7 +93,7 @@
 	    for (int y=0; y<height; y++) {
 	        for (int x=0; x<width; x++) {
 	            int pixelIndex = (width * y + x) * 4 /* 4 for A, R, G, B */;
-	            NSLog(@"data pixel: %i", pixelIndex);
+	            NSLog(@"data pixel: ");
 	            if (data[pixelIndex] != 0) { //Alpha value is not zero; pixel is not transparent.
 	                if (x < lowX) lowX = x;
 	                if (x > highX) highX = x;
