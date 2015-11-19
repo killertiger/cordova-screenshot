@@ -96,43 +96,28 @@ public class Screenshot extends CordovaPlugin {
         mediaScanIntent.setData(contentUri);
         this.cordova.getActivity().sendBroadcast(mediaScanIntent);
     }
-	private Bitmap tentativa2(Bitmap source)
-	{
-		int baseColor = Color.WHITE;
-
-		   int width = source.getWidth();
-		   int height = source.getHeight();
-		
-		   int topY = Integer.MAX_VALUE, topX = Integer.MAX_VALUE;
-		   int bottomY = -1, bottomX = -1;
-		   for(int y=0; y<height; y++) {
-		      for(int x=0; x<width; x++) {
-		         if (source.getPixel(x, y) == baseColor) {
-		            if (x < topX) topX = x;
-		            if (y < topY) topY = y;
-		            if (x > bottomX) bottomX = x;
-		            if (y > bottomY) bottomY = y;
-		         }
-		      }
-	   	}
-	   	String result = topX + " - " + topY + " - " + bottomX + " - " + bottomY;
-	   	
-	   	Log.d("autocrop", result);
-	   	
-	   	Bitmap destination = Bitmap.createBitmap(source, topX, topY, bottomX, bottomY);//source.getHeight() - upperBorder);
-	   	return destination;
-	}
 	
 	private Bitmap tentativa3(Bitmap source)
 	{
 		int baseColor = Color.WHITE;
-
-		   int width = source.getWidth();
-		   int height = source.getHeight();
+		int width = source.getWidth();
+		int height = source.getHeight();
+		int topX = 0;
+		int topY = 0;
 		int x = 0;
-		for(int y=height-1; y > 0; y--)
+		for(int y=0; y < height/2; y++)
 		{
-			if (source.getPixel(x, y) == baseColor) {
+			if (source.getPixel(x, y) == Color.BLACK) {
+				topY = y;
+			}
+			else
+			{
+				break;
+			}
+		}
+		for(int y=height/2; y > 0; y--)
+		{
+			if (source.getPixel(x, y) == Color.WHITE) {
 				height = y;	
 			}
 			else
@@ -140,8 +125,9 @@ public class Screenshot extends CordovaPlugin {
 				break;
 			}
 		}
-	   	String result = 0 + " - " + 0 + " - " + source.getWidth() + " - " + height;
-		Bitmap destination = Bitmap.createBitmap(source, 0, 0, source.getWidth(), height);//source.getHeight() - upperBorder);
+		
+	   	String result = topX + " - " + topY + " - " + width + " - " + height;
+		Bitmap destination = Bitmap.createBitmap(source, topX, topY, width, height);//source.getHeight() - upperBorder);
 	   	return destination;
 	}
 	
