@@ -38,6 +38,8 @@
 	UIImage *oldImage = [self getScreenshot];
 
 	CGRect newRect = [self cropRectForImage:oldImage];
+	NSLog(@"newRect: %@", newRect);
+	
 	CGImageRef imageRef = CGImageCreateWithImageInRect(oldImage.CGImage, newRect);
 	UIImage *image = [UIImage imageWithCGImage:imageRef];
 	CGImageRelease(imageRef);
