@@ -115,7 +115,7 @@ public class Screenshot extends CordovaPlugin {
 				break;
 			}
 		}
-		for(int y=height/2; y > 0; y--)
+		for(int y=height-1; y > height/2; y--)
 		{
 			if (source.getPixel(x, y) == Color.WHITE) {
 				height = y;	
@@ -127,7 +127,7 @@ public class Screenshot extends CordovaPlugin {
 		}
 		
 	   	String result = topX + " - " + topY + " - " + width + " - " + height;
-		Bitmap destination = Bitmap.createBitmap(source, topX, topY, width, height);//source.getHeight() - upperBorder);
+		Bitmap destination = Bitmap.createBitmap(source, topX, topY, width - topX, height - topY);//source.getHeight() - upperBorder);
 	   	return destination;
 	}
 	
