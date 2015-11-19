@@ -140,7 +140,7 @@ public class Screenshot extends CordovaPlugin {
 				break;
 			}
 		}
-	   	String result = topX + " - " + topY + " - " + bottomX + " - " + bottomY;
+	   	String result = 0 + " - " + 0 + " - " + source.getWidth() + " - " + height;
 		Bitmap destination = Bitmap.createBitmap(source, 0, 0, source.getWidth(), height);//source.getHeight() - upperBorder);
 	   	return destination;
 	}
