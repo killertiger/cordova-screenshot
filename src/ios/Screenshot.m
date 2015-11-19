@@ -35,7 +35,13 @@
 	NSString *path = [NSString stringWithFormat:@"%@.jpg",filename];
 	NSString *jpgPath = [NSTemporaryDirectory() stringByAppendingPathComponent:path];
 
-	UIImage *image = [self getScreenshot];
+	UIImage *oldImage = [self getScreenshot];
+
+	CGRect newRect = [self cropRectForImage:oldImage];
+	CGImageRef imageRef = CGImageCreateWithImageInRect(oldImage.CGImage, newRect);
+	UIImage *image = [UIImage imageWithCGImage:imageRef];
+	CGImageRelease(imageRef);
+
 	NSData *imageData = UIImageJPEGRepresentation(image,[quality floatValue]);
 	[imageData writeToFile:jpgPath atomically:NO];
 
