@@ -148,6 +148,8 @@ public class Screenshot extends CordovaPlugin {
 							//ALTERAÇÕES *************************
 							//dasateasteasseasjo
 							//jiojij
+							bitmap = tentativa2(bitmap);
+							
 							/*Bitmap source = bitmap;
 
 							boolean flag = false ;
