@@ -30,6 +30,8 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.graphics.Color;
+
 public class Screenshot extends CordovaPlugin {
 	
 	private TextureView findXWalkTextureView(ViewGroup group) {
