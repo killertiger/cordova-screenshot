@@ -116,6 +116,8 @@ public class Screenshot extends CordovaPlugin {
 	        } else {
 	            finalHeight = (int) ((float)maxWidth / ratioBitmap);
 	        }*/
+	   	String result = finalWidth + " - " + finalHeight;
+	        Log.d("autocrop", result);
 	        image = Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
 	        return image;
 	    } else {
@@ -151,8 +153,7 @@ public class Screenshot extends CordovaPlugin {
 				break;
 			}
 		}
-	   	String result = topX + " - " + topY + " - " + width + " - " + height;
-		Log.d("autocrop", result);
+		
 		Bitmap destination = Bitmap.createBitmap(source, topX, topY, width - topX, height - topY);//source.getHeight() - upperBorder);
 	   	return resize(destination, 300, 300);
 	}
