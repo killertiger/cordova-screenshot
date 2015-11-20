@@ -301,4 +301,32 @@
     return img;
 }
 
+- (UIImage *)imageWithImage:(CGFloat)width maxHeight:(CGFloat)height
+{
+    CGFloat oldWidth = self.size.width;
+    CGFloat oldHeight = self.size.height;
+
+    CGFloat scaleFactor = (oldWidth > oldHeight) ? width / oldWidth : height / oldHeight;
+
+    CGFloat newHeight = oldHeight * scaleFactor;
+    CGFloat newWidth = oldWidth * scaleFactor;
+    CGSize newSize = CGSizeMake(newWidth, newHeight);
+
+    return [self imageWithImage:self scaledToSize:newSize];
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)size
+{
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+        UIGraphicsBeginImageContextWithOptions(size, NO, [[UIScreen mainScreen] scale]);
+    } else {
+        UIGraphicsBeginImageContext(size);
+    }
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 @end
