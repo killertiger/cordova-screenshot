@@ -101,8 +101,9 @@ public class Screenshot extends CordovaPlugin {
 	    if (maxHeight > 0 && maxWidth > 0) {
 	        int width = image.getWidth();
 	        int height = image.getHeight();
-	        
+	        Log.d("autocrop", width + " x " + height);
 	        float scaleFactor = (width < height) ? maxWidth / width : maxHeight / height;
+	        Log.d("autocrop", "" + scaleFactor);
 	        int finalWidth = (int)(width * scaleFactor);
 	        int finalHeight = (int)(height * scaleFactor);
 	        
