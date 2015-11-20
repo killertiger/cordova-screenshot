@@ -16,4 +16,6 @@
 - (UIImage *)imageByTrimmingTransparentPixelsRequiringFullOpacity:(BOOL)fullyOpaque;
 - (UIImage *)imageByTrimmingWhitePixelsWithOpacity:(UInt8)tolerance;
 
+- (UIImage *)imageWithImage:(CGFloat)width maxHeight:(CGFloat)height;
+
 @end
