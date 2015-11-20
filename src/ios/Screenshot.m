@@ -41,7 +41,7 @@
 
 	UIImage *croppedImage = [originalImage imageByTrimmingWhitePixelsWithOpacity:1];
     
-    	UIImage *image = [croppedImage imageWithImage:150 maxHeight:150];
+    	UIImage *image = [croppedImage imageWithImage:200 maxHeight:200];
     
 	NSData *imageData = UIImageJPEGRepresentation(image,[quality floatValue]);
 	[imageData writeToFile:jpgPath atomically:NO];
