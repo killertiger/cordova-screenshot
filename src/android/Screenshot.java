@@ -156,7 +156,7 @@ public class Screenshot extends CordovaPlugin {
 		}
 		
 		Bitmap destination = Bitmap.createBitmap(source, topX, topY, width - topX, height - topY);//source.getHeight() - upperBorder);
-	   	return resize(destination, 300, 300);
+	   	return resize(destination, 400, 400);
 	}
 	
 	@Override
