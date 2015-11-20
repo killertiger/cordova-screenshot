@@ -101,7 +101,12 @@ public class Screenshot extends CordovaPlugin {
 	    if (maxHeight > 0 && maxWidth > 0) {
 	        int width = image.getWidth();
 	        int height = image.getHeight();
-	        float ratioBitmap = (float) width / (float) height;
+	        
+	        float scaleFactor = (width < height) ? maxWidth / width : maxHeight / height;
+	        fload finalWidth = width * scaleFactor;
+	        fload finalHeight = height * scaleFactor;
+	        
+	        /*float ratioBitmap = (float) width / (float) height;
 	        float ratioMax = (float) maxWidth / (float) maxHeight;
 	
 	        int finalWidth = maxWidth;
@@ -110,7 +115,7 @@ public class Screenshot extends CordovaPlugin {
 	            finalWidth = (int) ((float)maxHeight * ratioBitmap);
 	        } else {
 	            finalHeight = (int) ((float)maxWidth / ratioBitmap);
-	        }
+	        }*/
 	        image = Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
 	        return image;
 	    } else {
